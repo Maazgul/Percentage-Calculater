@@ -88,7 +88,32 @@ input:focus,select:focus{border-color:#818cf8;box-shadow:0 0 0 3px rgba(99,102,2
 .seo-content h2:first-child{
   margin-top:0;
 }
-@media(max-width:760px){
+.faq-section{
+  max-width:1100px;
+  margin:0 auto 30px;
+  padding:0 16px;
+}
+
+.faq-item{
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.faq-item:last-child{
+  border-bottom:0;
+}
+
+.faq-item h3{
+  margin:0 0 8px;
+  font-size:17px;
+}
+
+.faq-item p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
+    @media(max-width:760px){
  .grid{grid-template-columns:1fr}
  .nav{align-items:flex-start}
  .hero{margin-top:40px}
@@ -258,7 +283,42 @@ input:focus,select:focus{border-color:#818cf8;box-shadow:0 0 0 3px rgba(99,102,2
     </p>
   </div>
 </section>
-<footer class="footer">© <span id="year"></span> MaazCalc · Simple tools for everyday calculations</footer>
+<section class="faq-section">
+  <div class="card">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>What is a percentage calculator?</h3>
+      <p>A percentage calculator helps you quickly calculate percentages, percentage changes, marks percentages and other percentage-related calculations.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I calculate percentage?</h3>
+      <p>Use the formula: Percentage = (Obtained Value ÷ Total Value) × 100. For example, 425 out of 500 is 85%.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I calculate marks percentage?</h3>
+      <p>Enter your obtained marks and total marks in the Marks Percentage Calculator. The calculator automatically calculates your percentage.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I calculate a discount?</h3>
+      <p>Enter the original price and discount percentage. MaazCalc calculates the discount amount and the final price.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I calculate profit or loss?</h3>
+      <p>Enter the cost price and selling price. The calculator shows whether you have made a profit or loss and calculates the percentage.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How is GPA calculated?</h3>
+      <p>GPA is calculated using the weighted average of grade points and credit hours: GPA = Σ(Grade Point × Credit Hours) ÷ Σ(Credit Hours).</p>
+    </div>
+  </div>
+</section>
+  <footer class="footer">© <span id="year"></span> MaazCalc · Simple tools for everyday calculations</footer>
 
 <script>
 const $ = id => document.getElementById(id);
