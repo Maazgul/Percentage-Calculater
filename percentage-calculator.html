@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Percentage Calculator – Free Online Calculator | MaazCalc</title>
+
+  <meta name="description" content="Use this free percentage calculator to calculate percentages, find X% of a number, and calculate percentage increase or decrease quickly and easily.">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Maaz Gul">
+  <link rel="canonical" href="https://maazgul.github.io/Percentage-Calculater/percentage-calculator.html">
+
+  <meta property="og:title" content="Percentage Calculator – Free Online Calculator">
+  <meta property="og:description" content="Calculate percentages, percentage increase, decrease, and X% of any number with MaazCalc.">
+  <meta property="og:url" content="https://maazgul.github.io/Percentage-Calculater/percentage-calculator.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --primary:#4f46e5;
+      --primary2:#7c3aed;
+      --bg:#f5f7fb;
+      --card:#fff;
+      --text:#172033;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --success:#059669;
+      --danger:#dc2626;
+      --shadow:0 14px 40px rgba(15,23,42,.08);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    .header{
+      background:linear-gradient(135deg,#4338ca,#7c3aed);
+      color:#fff;
+      padding:24px 18px 55px;
+    }
+
+    .nav{
+      max-width:1000px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      font-weight:800;
+      font-size:21px;
+    }
+
+    .hero{
+      max-width:800px;
+      margin:45px auto 0;
+      text-align:center;
+    }
+
+    .hero h1{
+      font-size:clamp(30px,5vw,48px);
+      margin:0 0 12px;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:680px;
+      color:#e9e7ff;
+      line-height:1.6;
+      font-size:17px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:-30px auto 45px;
+      padding:0 16px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+
+    .calculator{
+      max-width:700px;
+      margin:auto;
+    }
+
+    .calculator h2{
+      margin-top:0;
+    }
+
+    .field{
+      margin:15px 0;
+    }
+
+    label{
+      display:block;
+      font-weight:700;
+      font-size:14px;
+      margin-bottom:7px;
+    }
+
+    input{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:11px;
+      padding:12px 13px;
+      font:inherit;
+      outline:none;
+    }
+
+    input:focus{
+      border-color:#818cf8;
+      box-shadow:0 0 0 3px rgba(99,102,241,.12);
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    button{
+      width:100%;
+      border:0;
+      border-radius:11px;
+      padding:12px 16px;
+      background:var(--primary);
+      color:#fff;
+      cursor:pointer;
+      font-weight:800;
+      font:inherit;
+      margin-top:8px;
+    }
+
+    button:hover{
+      background:#4338ca;
+    }
+
+    .result{
+      display:none;
+      margin-top:18px;
+      padding:16px;
+      border-radius:14px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+    }
+
+    .result.show{
+      display:block;
+    }
+
+    .result strong{
+      display:block;
+      font-size:25px;
+      margin-bottom:4px;
+    }
+
+    .good{color:var(--success)}
+    .bad{color:var(--danger)}
+
+    h2{
+      margin-top:0;
+    }
+
+    h3{
+      margin-bottom:7px;
+    }
+
+    p{
+      line-height:1.7;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      padding:10px 16px 30px;
+    }
+
+    .footer a{
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    @media(max-width:600px){
+      .row{
+        grid-template-columns:1fr;
+      }
+
+      .card{
+        padding:19px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"MaazCalc Percentage Calculator",
+    "url":"https://maazgul.github.io/Percentage-Calculater/percentage-calculator.html",
+    "description":"Free online percentage calculator for calculating percentages, percentage increase, percentage decrease and X% of a number.",
+    "applicationCategory":"CalculatorApplication",
+    "operatingSystem":"Any",
+    "browserRequirements":"Requires JavaScript",
+    "author":{
+      "@type":"Person",
+      "name":"Maaz Gul"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How do I calculate a percentage?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Use the formula Percentage = (Obtained Value ÷ Total Value) × 100. For example, 425 out of 500 is 85%."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How do I calculate percentage increase?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Percentage increase = ((New Value − Old Value) ÷ Old Value) × 100."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How do I calculate percentage decrease?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Percentage decrease = ((Old Value − New Value) ÷ Old Value) × 100."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <div class="brand">MaazCalc</div>
+    <div>Free Online Calculator</div>
+  </nav>
+
+  <div class="hero">
+    <h1>Percentage Calculator</h1>
+    <p>
+      Calculate percentages, find X% of a number, and calculate percentage
+      increase or decrease quickly with this free online percentage calculator.
+    </p>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="card calculator">
+    <h2>Calculate Percentage</h2>
+    <p class="muted">
+      Enter the percentage and number to find the result.
+    </p>
+
+    <div class="row">
+      <div class="field">
+        <label>Percentage (%)</label>
+        <input id="pct" type="number" step="any" placeholder="e.g. 20">
+      </div>
+
+      <div class="field">
+        <label>Number</label>
+        <input id="num" type="number" step="any" placeholder="e.g. 500">
+      </div>
+    </div>
+
+    <button onclick="calcPercent()">Calculate Percentage</button>
+
+    <div id="percentResult" class="result"></div>
+  </div>
+
+  <div class="card calculator">
+    <h2>Percentage Increase or Decrease</h2>
+    <p class="muted">
+      Enter the old value and new value to calculate the percentage change.
+    </p>
+
+    <div class="row">
+      <div class="field">
+        <label>Old Value</label>
+        <input id="oldVal" type="number" step="any" placeholder="e.g. 200">
+      </div>
+
+      <div class="field">
+        <label>New Value</label>
+        <input id="newVal" type="number" step="any" placeholder="e.g. 250">
+      </div>
+    </div>
+
+    <button onclick="calcChange()">Calculate Change</button>
+
+    <div id="changeResult" class="result"></div>
+  </div>
+
+  <div class="card">
+
+    <h2>How to Calculate Percentage?</h2>
+
+    <p>
+      The basic percentage formula is:
+      <strong>Percentage = (Obtained Value ÷ Total Value) × 100</strong>.
+    </p>
+
+    <p>
+      For example, if you obtain 425 marks out of 500:
+    </p>
+
+    <p>
+      (425 ÷ 500) × 100 = <strong>85%</strong>
+    </p>
+
+    <h2>How to Calculate Percentage Increase?</h2>
+
+    <p>
+      To calculate percentage increase, subtract the old value from the new
+      value, divide the difference by the old value, and multiply by 100.
+    </p>
+
+    <p>
+      <strong>
+        Percentage Increase = ((New Value − Old Value) ÷ Old Value) × 100
+      </strong>
+    </p>
+
+    <h2>How to Calculate Percentage Decrease?</h2>
+
+    <p>
+      To calculate percentage decrease, subtract the new value from the old
+      value, divide the difference by the old value, and multiply by 100.
+    </p>
+
+    <p>
+      <strong>
+        Percentage Decrease = ((Old Value − New Value) ÷ Old Value) × 100
+      </strong>
+    </p>
+
+    <h2>Percentage Calculator Uses</h2>
+
+    <p>
+      A percentage calculator can be useful for school and university marks,
+      exam results, discounts, price changes, business calculations, statistics,
+      budgeting and everyday calculations.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How do I calculate a percentage?</h3>
+    <p class="muted">
+      Divide the obtained value by the total value and multiply the result by
+      100. For example, 425 out of 500 equals 85%.
+    </p>
+
+    <h3>How do I calculate percentage increase?</h3>
+    <p class="muted">
+      Use ((New Value − Old Value) ÷ Old Value) × 100.
+    </p>
+
+    <h3>How do I calculate percentage decrease?</h3>
+    <p class="muted">
+      Use ((Old Value − New Value) ÷ Old Value) × 100.
+    </p>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  © <span id="year"></span> MaazCalc ·
+  <a href="index.html">Home</a> |
+  <a href="about.html">About Us</a> |
+  <a href="contact.html">Contact Us</a> |
+  <a href="privacy-policy.html">Privacy Policy</a> |
+  <a href="terms.html">Terms & Conditions</a>
+</footer>
+
+<script>
+function fmt(x){
+  return Number(x).toLocaleString(undefined,{
+    maximumFractionDigits:2
+  });
+}
+
+function calcPercent(){
+  const p=parseFloat(document.getElementById('pct').value);
+  const x=parseFloat(document.getElementById('num').value);
+  const result=document.getElementById('percentResult');
+
+  if(!Number.isFinite(p)||!Number.isFinite(x)){
+    result.innerHTML='Please enter both values.';
+    result.classList.add('show');
+    return;
+  }
+
+  result.innerHTML=
+    `<strong>${fmt(p)}% of ${fmt(x)} = ${fmt(p/100*x)}</strong>`;
+  result.classList.add('show');
+}
+
+function calcChange(){
+  const oldValue=parseFloat(document.getElementById('oldVal').value);
+  const newValue=parseFloat(document.getElementById('newVal').value);
+  const result=document.getElementById('changeResult');
+
+  if(!Number.isFinite(oldValue)||!Number.isFinite(newValue)||oldValue===0){
+    result.innerHTML='Please enter valid values. Old value cannot be 0.';
+    result.classList.add('show');
+    return;
+  }
+
+  const diff=newValue-oldValue;
+  const pct=Math.abs(diff)/Math.abs(oldValue)*100;
+
+  result.innerHTML=
+    `<strong class="${diff>=0?'good':'bad'}">
+      ${diff>=0?'▲ Increase':'▼ Decrease'}: ${fmt(pct)}%
+    </strong>
+    <small>
+      Change: ${fmt(diff)} (${fmt(oldValue)} → ${fmt(newValue)})
+    </small>`;
+
+  result.classList.add('show');
+}
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
