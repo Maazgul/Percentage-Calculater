@@ -8,12 +8,10 @@
   <meta name="description" content="Use our free Marks Percentage Calculator to calculate exam marks percentage instantly. Enter obtained marks and total marks to find your percentage quickly and easily.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Maaz Gul">
-  <link rel="canonical" href="https://maazgul.github.io/Percentage-Calculater/percentage-calculator.html">
-
+<link rel="canonical" href="https://maazgul.github.io/Percentage-Calculater/marks-percentage-calculator.html">
   <meta property="og:title" content="Percentage Calculator – Free Online Calculator">
   <meta property="og:description" content="Calculate percentages, percentage increase, decrease, and X% of any number with MaazCalc.">
-  <meta property="og:url" content="https://maazgul.github.io/Percentage-Calculater/percentage-calculator.html">
-  <meta property="og:type" content="website">
+<meta property="og:url" content="https://maazgul.github.io/Percentage-Calculater/marks-percentage-calculator.html">  <meta property="og:type" content="website">
 
   <style>
     :root{
@@ -269,10 +267,10 @@
   </nav>
 
   <div class="hero">
-    <h1>Percentage Calculator</h1>
+<h1>Marks Percentage Calculator</h1> 
     <p>
-      Calculate percentages, find X% of a number, and calculate percentage
-      increase or decrease quickly with this free online percentage calculator.
+    Calculate your exam marks percentage instantly. Enter your obtained marks
+and total marks to find your percentage quickly with this free Marks Percentage Calculator. 
     </p>
   </div>
 </header>
@@ -280,25 +278,24 @@
 <main class="container">
 
   <div class="card calculator">
-    <h2>Calculate Percentage</h2>
+    <h2>Calculate Marks Percentage</h2> 
     <p class="muted">
-      Enter the percentage and number to find the result.
+    Enter your obtained marks and total marks to calculate your exam percentage.
     </p>
 
     <div class="row">
       <div class="field">
-        <label>Percentage (%)</label>
-        <input id="pct" type="number" step="any" placeholder="e.g. 20">
+        <label>Obtained Marks</label>
+<input id="pct" type="number" step="any" placeholder="e.g. 425">
       </div>
 
       <div class="field">
-        <label>Number</label>
-        <input id="num" type="number" step="any" placeholder="e.g. 500">
+        <label>Total Marks</label>
+<input id="num" type="number" step="any" placeholder="e.g. 500">
       </div>
     </div>
 
-    <button onclick="calcPercent()">Calculate Percentage</button>
-
+    <button onclick="calcPercent()">Calculate Marks Percentage</button>
     <div id="percentResult" class="result"></div>
   </div>
 
@@ -327,11 +324,10 @@
 
   <div class="card">
 
-    <h2>How to Calculate Percentage?</h2>
-
+    <h2>How to Calculate Marks Percentage?</h2>
     <p>
-      The basic percentage formula is:
-      <strong>Percentage = (Obtained Value ÷ Total Value) × 100</strong>.
+      The marks percentage formula is:
+<strong>Percentage = (Obtained Marks ÷ Total Marks) × 100</strong>.
     </p>
 
     <p>
@@ -419,13 +415,13 @@ function fmt(x){
 }
 
 function calcPercent(){
-  const p=parseFloat(document.getElementById('pct').value);
-  const x=parseFloat(document.getElementById('num').value);
+  const obtained=parseFloat(document.getElementById('pct').value);
+const total=parseFloat(document.getElementById('num').value);
   const result=document.getElementById('percentResult');
 
-  if(!Number.isFinite(p)||!Number.isFinite(x)){
-    result.innerHTML='Please enter both values.';
-    result.classList.add('show');
+  if(!Number.isFinite(obtained)||!Number.isFinite(total)||total===0){
+    result.innerHTML=
+    `<strong>${fmt(p/100*x)}% Marks Percentage</strong>`;
     return;
   }
 
