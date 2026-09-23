@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GPA & CGPA Calculator – Calculate GPA Online | MaazCalc</title>
+
+  <meta name="description" content="Use our free GPA and CGPA Calculator to calculate weighted GPA based on grade points and credit hours. Simple, fast and easy online calculator.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://maazgul.github.io/Percentage-Calculater/gpa-cgpa-calculator.html">
+
+  <meta property="og:title" content="GPA & CGPA Calculator – Calculate GPA Online | MaazCalc">
+  <meta property="og:description" content="Free online GPA and CGPA calculator. Calculate weighted GPA using grade points and credit hours.">
+  <meta property="og:url" content="https://maazgul.github.io/Percentage-Calculater/gpa-cgpa-calculator.html">
+  <meta property="og:type" content="website">
+
+  <meta name="author" content="Maaz Gul">
+  <meta name="theme-color" content="#4f46e5">
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f5f7fb;
+      color:#1f2937;
+    }
+
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:25px 16px 50px;
+    }
+
+    header{
+      text-align:center;
+      padding:20px 0 25px;
+    }
+
+    header h1{
+      margin:0 0 10px;
+      font-size:32px;
+      color:#111827;
+    }
+
+    header p{
+      margin:0;
+      color:#6b7280;
+      font-size:16px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:14px;
+      padding:24px;
+      margin-bottom:22px;
+      box-shadow:0 4px 15px rgba(0,0,0,.07);
+    }
+
+    .card h2{
+      margin-top:0;
+      color:#111827;
+    }
+
+    .subject{
+      display:grid;
+      grid-template-columns:1.5fr 1fr 1fr auto;
+      gap:10px;
+      margin-bottom:12px;
+      align-items:center;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      font-size:15px;
+    }
+
+    button{
+      border:0;
+      border-radius:8px;
+      padding:12px 16px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:600;
+    }
+
+    .primary{
+      background:#4f46e5;
+      color:#fff;
+    }
+
+    .secondary{
+      background:#e5e7eb;
+      color:#111827;
+    }
+
+    .remove{
+      background:#fee2e2;
+      color:#b91c1c;
+      padding:10px 14px;
+      font-size:18px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .result{
+      display:none;
+      margin-top:18px;
+      padding:16px;
+      background:#eef2ff;
+      border-radius:10px;
+      text-align:center;
+    }
+
+    .result.show{
+      display:block;
+    }
+
+    .result strong{
+      display:block;
+      font-size:28px;
+      color:#3730a3;
+      margin-bottom:6px;
+    }
+
+    .result small{
+      color:#4b5563;
+      font-size:14px;
+    }
+
+    .seo-content h2{
+      margin-top:28px;
+    }
+
+    .seo-content h2:first-child{
+      margin-top:0;
+    }
+
+    .seo-content p{
+      line-height:1.7;
+      color:#4b5563;
+    }
+
+    .seo-content a{
+      color:#4f46e5;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .faq{
+      border-top:1px solid #e5e7eb;
+      padding:16px 0;
+    }
+
+    .faq:first-child{
+      border-top:0;
+    }
+
+    .faq h3{
+      margin:0 0 8px;
+      font-size:17px;
+    }
+
+    .faq p{
+      margin:0;
+    }
+
+    .footer{
+      text-align:center;
+      color:#6b7280;
+      font-size:14px;
+      padding:25px 10px;
+    }
+
+    .footer a{
+      color:#4f46e5;
+      text-decoration:none;
+    }
+
+    @media(max-width:650px){
+      header h1{
+        font-size:26px;
+      }
+
+      .card{
+        padding:18px;
+      }
+
+      .subject{
+        grid-template-columns:1fr;
+      }
+
+      .remove{
+        width:100%;
+      }
+
+      .actions button{
+        width:100%;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"GPA and CGPA Calculator",
+    "url":"https://maazgul.github.io/Percentage-Calculater/gpa-cgpa-calculator.html",
+    "applicationCategory":"EducationalApplication",
+    "operatingSystem":"Any",
+    "description":"Free online GPA and CGPA calculator for calculating weighted GPA using grade points and credit hours."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is a GPA?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"GPA stands for Grade Point Average. It represents the average of grade points earned across courses, usually weighted by credit hours."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How is GPA calculated?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"GPA is calculated by multiplying each grade point by its credit hours, adding the results, and dividing by the total credit hours."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"What is CGPA?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"CGPA stands for Cumulative Grade Point Average and represents the combined grade point average across multiple semesters or academic periods."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I calculate GPA using different credit hours?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. The calculator uses credit hours as weights, so courses with different credit hours can be included."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>GPA &amp; CGPA Calculator</h1>
+      <p>Calculate your weighted GPA quickly using grade points and credit hours.</p>
+    </header>
+
+    <section class="card">
+
+      <h2>Calculate GPA</h2>
+
+      <p>
+        Add your subjects and enter the grade point and credit hours for each subject.
+      </p>
+
+      <div id="subjects"></div>
+
+      <div class="actions">
+        <button class="secondary" onclick="addSubject()">+ Add Subject</button>
+        <button class="primary" onclick="calculateGPA()">Calculate GPA</button>
+        <button class="secondary" onclick="resetSubjects()">Reset</button>
+      </div>
+
+      <div id="result" class="result"></div>
+
+    </section>
+
+    <section class="card seo-content">
+
+      <h2>Free GPA and CGPA Calculator</h2>
+
+      <p>
+        MaazCalc's free GPA and CGPA Calculator helps students calculate a
+        weighted Grade Point Average using grade points and credit hours.
+        Enter your subjects, grade points and credit hours to get your GPA instantly.
+      </p>
+
+      <h2>How to Calculate GPA?</h2>
+
+      <p>
+        GPA is calculated by multiplying each subject's grade point by its
+        credit hours, adding all weighted grade points, and dividing the total
+        by the total number of credit hours.
+      </p>
+
+      <p>
+        <strong>GPA = Σ(Grade Point × Credit Hours) ÷ Σ(Credit Hours)</strong>
+      </p>
+
+      <h2>Example of GPA Calculation</h2>
+
+      <p>
+        Suppose you have two subjects. Subject 1 has a grade point of 3.0
+        with 3 credit hours, while Subject 2 has a grade point of 4.0
+        with 3 credit hours.
+      </p>
+
+      <p>
+        GPA = [(3.0 × 3) + (4.0 × 3)] ÷ (3 + 3) = 3.50
+      </p>
+
+      <h2>What is CGPA?</h2>
+
+      <p>
+        CGPA stands for Cumulative Grade Point Average. It represents the
+        combined academic performance across multiple semesters or academic
+        periods. The exact CGPA calculation method can vary depending on the
+        educational institution.
+      </p>
+
+      <h2>Why Use MaazCalc GPA Calculator?</h2>
+
+      <p>
+        Our GPA calculator is free, simple and works directly in your browser.
+        No software installation is required. You can add multiple subjects
+        and calculate a weighted GPA using different credit hours.
+      </p>
+
+    </section>
+
+    <section class="card">
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq">
+        <h3>What is a GPA?</h3>
+        <p>
+          GPA stands for Grade Point Average and represents the average of
+          grade points earned in your courses.
+        </p>
+      </div>
+
+      <div class="faq">
+        <h3>How is GPA calculated?</h3>
+        <p>
+          Multiply each grade point by its credit hours, add the results,
+          and divide by the total credit hours.
+        </p>
+      </div>
+
+      <div class="faq">
+        <h3>What is CGPA?</h3>
+        <p>
+          CGPA stands for Cumulative Grade Point Average and represents
+          academic performance across multiple semesters or periods.
+        </p>
+      </div>
+
+      <div class="faq">
+        <h3>Can I use different credit hours?</h3>
+        <p>
+          Yes. Different credit hours can be entered because the calculator
+          uses credit hours to calculate a weighted GPA.
+        </p>
+      </div>
+
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    © <span id="year"></span> MaazCalc · Simple tools for everyday calculations
+    <br><br>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About Us</a> |
+    <a href="contact.html">Contact Us</a> |
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms &amp; Conditions</a>
+  </footer>
+
+  <script>
+    const subjects = document.getElementById('subjects');
+    const result = document.getElementById('result');
+
+    function addSubject(name = '', gp = '', cr = '') {
+      const div = document.createElement('div');
+      div.className = 'subject';
+
+      div.innerHTML = `
+        <input class="sname" type="text" placeholder="Subject" value="${name}">
+        <input class="gp" type="number" min="0" step="0.01" placeholder="Grade Point" value="${gp}">
+        <input class="cr" type="number" min="0" step="0.5" placeholder="Credit Hours" value="${cr}">
+        <button class="remove" type="button" title="Remove Subject">×</button>
+      `;
+
+      div.querySelector('.remove').onclick = () => {
+        div.remove();
+      };
+
+      subjects.appendChild(div);
+    }
+
+    function calculateGPA() {
+      const rows = [...document.querySelectorAll('.subject')];
+
+      let totalPoints = 0;
+      let totalCredits = 0;
+
+      if (rows.length === 0) {
+        result.innerHTML = 'Please add at least one subject.';
+        result.classList.add('show');
+        return;
+      }
+
+      for (const row of rows) {
+
+        const gp = parseFloat(row.querySelector('.gp').value);
+        const cr = parseFloat(row.querySelector('.cr').value);
+
+        if (!Number.isFinite(gp) || !Number.isFinite(cr) || cr <= 0 || gp < 0) {
+          result.innerHTML = 'Please enter valid grade points and credit hours for every subject.';
+          result.classList.add('show');
+          return;
+        }
+
+        totalPoints += gp * cr;
+        totalCredits += cr;
+      }
+
+      const gpa = totalPoints / totalCredits;
+
+      result.innerHTML = `
+        <strong>${gpa.toFixed(2)}</strong>
+        <small>
+          GPA · Total Credit Hours: ${totalCredits.toFixed(2)}
+          · Weighted Grade Points: ${totalPoints.toFixed(2)}
+        </small>
+      `;
+
+      result.classList.add('show');
+    }
+
+    function resetSubjects() {
+      subjects.innerHTML = '';
+      result.classList.remove('show');
+
+      addSubject();
+      addSubject();
+      addSubject();
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    resetSubjects();
+  </script>
+
+</body>
+</html>
