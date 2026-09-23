@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RF7FP7578"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4RF7FP7578');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Use our free Discount Calculator to calculate discount amount and final price instantly. Enter the original price and discount percentage to get accurate results.">
+
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="author" content="Maaz Gul">
+
+  <link rel="canonical" href="https://maazgul.github.io/Percentage-Calculater/discount-calculator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Discount Calculator – Calculate Discount & Final Price | MaazCalc">
+  <meta property="og:description" content="Free online Discount Calculator to calculate discount amount and final price quickly and easily.">
+  <meta property="og:url" content="https://maazgul.github.io/Percentage-Calculater/discount-calculator.html">
+  <meta property="og:type" content="website">
+
+  <meta name="theme-color" content="#4f46e5">
+
+  <title>Discount Calculator – Calculate Discount & Final Price | MaazCalc</title>
+
+  <!-- WebApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "MaazCalc Discount Calculator",
+    "url": "https://maazgul.github.io/Percentage-Calculater/discount-calculator.html",
+    "description": "Free online Discount Calculator to calculate discount amount and final price.",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "author": {
+      "@type": "Person",
+      "name": "Maaz Gul"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a discount calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A discount calculator calculates the discount amount and the final price after applying a percentage discount to the original price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate a discount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Discount amount = Original Price × Discount Percentage ÷ 100. Final Price = Original Price − Discount Amount."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much is 20% off 5000?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 20% discount on 5,000 is 1,000, so the final price is 4,000."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I calculate the final price after a discount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Enter the original price and discount percentage to calculate both the discount amount and the final price."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --primary:#4f46e5;
+      --primary2:#7c3aed;
+      --bg:#f5f7fb;
+      --card:#fff;
+      --text:#172033;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --shadow:0 14px 40px rgba(15,23,42,.08);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    button,input{
+      font:inherit;
+    }
+
+    .header{
+      background:linear-gradient(135deg,#4338ca,#7c3aed);
+      color:#fff;
+      padding:24px 18px 70px;
+    }
+
+    .nav{
+      max-width:900px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      font-size:21px;
+    }
+
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:13px;
+      background:rgba(255,255,255,.16);
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      box-shadow:inset 0 1px rgba(255,255,255,.25);
+    }
+
+    .hero{
+      max-width:900px;
+      margin:52px auto 0;
+      text-align:center;
+    }
+
+    .hero h1{
+      font-size:clamp(30px,5vw,50px);
+      margin:0 0 12px;
+      letter-spacing:-1.5px;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:680px;
+      color:#e9e7ff;
+      font-size:17px;
+      line-height:1.6;
+    }
+
+    .container{
+      max-width:900px;
+      margin:-38px auto 50px;
+      padding:0 16px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .calculator h2{
+      margin:0 0 8px;
+      font-size:24px;
+    }
+
+    .desc{
+      margin:0 0 24px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .field{
+      margin:16px 0;
+    }
+
+    label{
+      display:block;
+      font-weight:700;
+      font-size:14px;
+      margin-bottom:7px;
+    }
+
+    input{
+      width:100%;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:11px;
+      padding:13px;
+      outline:none;
+      color:var(--text);
+    }
+
+    input:focus{
+      border-color:#818cf8;
+      box-shadow:0 0 0 3px rgba(99,102,241,.12);
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .btn{
+      border:0;
+      border-radius:11px;
+      padding:13px 16px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    .primary{
+      background:var(--primary);
+      color:#fff;
+      flex:1;
+    }
+
+    .primary:hover{
+      background:#4338ca;
+    }
+
+    .secondary{
+      background:#eef2f7;
+      color:#334155;
+    }
+
+    .result{
+      margin-top:20px;
+      padding:18px;
+      border-radius:14px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      display:none;
+    }
+
+    .result.show{
+      display:block;
+    }
+
+    .result strong{
+      font-size:25px;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .result small{
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .seo-content{
+      max-width:900px;
+      margin:0 auto 30px;
+      padding:0 16px;
+    }
+
+    .seo-content .card{
+      line-height:1.7;
+    }
+
+    .seo-content h2{
+      margin-top:28px;
+    }
+
+    .seo-content h2:first-child{
+      margin-top:0;
+    }
+
+    .faq-section{
+      max-width:900px;
+      margin:0 auto 30px;
+      padding:0 16px;
+    }
+
+    .faq-item{
+      padding:16px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .faq-item:last-child{
+      border-bottom:0;
+    }
+
+    .faq-item h3{
+      margin:0 0 8px;
+      font-size:17px;
+    }
+
+    .faq-item p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      padding:10px 16px 30px;
+    }
+
+    .footer a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .footer a:hover{
+      text-decoration:underline;
+    }
+
+    @media(max-width:600px){
+      .card{
+        padding:20px;
+      }
+
+      .hero{
+        margin-top:40px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .actions{
+        flex-direction:column;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+  <nav class="nav">
+    <div class="brand">
+      <div class="logo">∑</div>
+      <span>MaazCalc</span>
+    </div>
+
+    <div style="font-size:13px;opacity:.9">
+      Discount Calculator
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Discount Calculator</h1>
+
+    <p>
+      Calculate discount amount and final price quickly with our free,
+      simple and mobile-friendly Discount Calculator.
+    </p>
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <section class="calculator">
+
+    <div class="card">
+
+      <h2>Calculate Discount</h2>
+
+      <p class="desc">
+        Enter the original price and discount percentage to calculate
+        the discount amount and final price.
+      </p>
+
+      <div class="field">
+        <label for="originalPrice">Original Price</label>
+        <input
+          id="originalPrice"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="e.g. 5000"
+        >
+      </div>
+
+      <div class="field">
+        <label for="discountPct">Discount Percentage (%)</label>
+        <input
+          id="discountPct"
+          type="number"
+          step="any"
+          min="0"
+          placeholder="e.g. 20"
+        >
+      </div>
+
+      <div class="actions">
+
+        <button
+          class="btn primary"
+          onclick="calcDiscount()"
+        >
+          Calculate Discount
+        </button>
+
+        <button
+          class="btn secondary"
+          onclick="clearCalculator()"
+        >
+          Clear
+        </button>
+
+      </div>
+
+      <div id="discountResult" class="result"></div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<section class="seo-content">
+
+  <div class="card">
+
+    <h2>Free Online Discount Calculator</h2>
+
+    <p>
+      MaazCalc provides a free online Discount Calculator that helps you
+      calculate the discount amount and final price instantly. Enter the
+      original price and discount percentage to get a quick and accurate
+      result. The calculator works directly in your web browser on mobile
+      phones, tablets, laptops and desktop computers.
+    </p>
+
+
+    <h2>How to Calculate Discount?</h2>
+
+    <p>
+      The basic discount formula is:
+      <strong>
+        Discount Amount = Original Price × Discount Percentage ÷ 100
+      </strong>.
+    </p>
+
+    <p>
+      After finding the discount amount, use:
+      <strong>
+        Final Price = Original Price − Discount Amount
+      </strong>.
+    </p>
+
+
+    <h2>Example of a Discount Calculation</h2>
+
+    <p>
+      Suppose an item costs 5,000 and has a 20% discount.
+      The discount amount is 1,000 and the final price is 4,000.
+    </p>
+
+
+    <h2>How to Use the Discount Calculator</h2>
+
+    <p>
+      Enter the original price of the product in the first field.
+      Then enter the discount percentage in the second field.
+      Click the <strong>Calculate Discount</strong> button to see the
+      discount amount and final price.
+    </p>
+
+
+    <h2>Discount Calculator for Shopping</h2>
+
+    <p>
+      A discount calculator can be useful when shopping online or in stores.
+      It helps you quickly determine how much money you save and how much
+      you need to pay after a percentage discount.
+    </p>
+
+
+    <h2>Why Use MaazCalc?</h2>
+
+    <p>
+      MaazCalc provides simple online calculators for everyday calculations.
+      No installation is required, and calculations can be performed directly
+      in your browser.
+    </p>
+
+
+    <p>
+      You can also use our
+      <a href="marks-percentage-calculator.html">
+        Marks Percentage Calculator
+      </a>
+      to calculate exam marks percentage.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="faq-section">
+
+  <div class="card">
+
+    <h2>Frequently Asked Questions</h2>
+
+
+    <div class="faq-item">
+
+      <h3>What is a discount calculator?</h3>
+
+      <p>
+        A discount calculator calculates the discount amount and the final
+        price after applying a percentage discount to the original price.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <h3>How do I calculate a discount?</h3>
+
+      <p>
+        Discount amount = Original Price × Discount Percentage ÷ 100.
+        Final Price = Original Price − Discount Amount.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <h3>How much is 20% off 5000?</h3>
+
+      <p>
+        A 20% discount on 5,000 is 1,000, so the final price is 4,000.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <h3>Can I calculate the final price after a discount?</h3>
+
+      <p>
+        Yes. Enter the original price and discount percentage to calculate
+        both the discount amount and the final price.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer class="footer">
+
+  © <span id="year"></span> MaazCalc · Simple tools for everyday calculations
+
+  <br><br>
+
+  <a href="index.html">Home</a> |
+  <a href="marks-percentage-calculator.html">Marks Percentage Calculator</a> |
+  <a href="about.html">About Us</a> |
+  <a href="contact.html">Contact Us</a> |
+  <a href="privacy-policy.html">Privacy Policy</a> |
+  <a href="terms.html">Terms & Conditions</a>
+
+</footer>
+
+
+<script>
+
+  function calcDiscount(){
+
+    const price = parseFloat(
+      document.getElementById('originalPrice').value
+    );
+
+    const discount = parseFloat(
+      document.getElementById('discountPct').value
+    );
+
+    const result = document.getElementById('discountResult');
+
+    if(
+      !Number.isFinite(price) ||
+      !Number.isFinite(discount) ||
+      price < 0 ||
+      discount < 0 ||
+      discount > 100
+    ){
+
+      result.innerHTML =
+        'Please enter a valid price and a discount between 0% and 100%.';
+
+      result.classList.add('show');
+
+      return;
+    }
+
+    const discountAmount = price * discount / 100;
+
+    const finalPrice = price - discountAmount;
+
+    result.innerHTML = `
+      <strong>Final Price: ${formatNumber(finalPrice)}</strong>
+      <small>
+        Discount Amount: ${formatNumber(discountAmount)}
+        (${formatNumber(discount)}% off the original price)
+      </small>
+    `;
+
+    result.classList.add('show');
+
+  }
+
+
+  function formatNumber(value){
+
+    return Number(value).toLocaleString(undefined,{
+      maximumFractionDigits:2
+    });
+
+  }
+
+
+  function clearCalculator(){
+
+    document.getElementById('originalPrice').value = '';
+
+    document.getElementById('discountPct').value = '';
+
+    document.getElementById('discountResult').classList.remove('show');
+
+  }
+
+
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
